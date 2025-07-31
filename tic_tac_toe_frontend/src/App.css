@@ -1,0 +1,192 @@
+/* Theme: Modern, Light, Responsive with required palette
+   - Primary:   #1976d2
+   - Secondary: #ffb300
+   - Accent:    #d32f2f
+*/
+
+/* CSS Variables for Custom Theme (Light, Modern, Official color palette) */
+:root {
+  --primary: #1976d2;
+  --secondary: #ffb300;
+  --accent: #d32f2f;
+
+  --bg-primary: #fff;
+  --bg-secondary: #f8f9fa;
+  --card-bg: #f7fbff;
+  --ttt-shadow: rgba(25, 118, 210, 0.10);
+
+  --text-main: #2c3655;
+  --text-secondary: #607d8b;
+  --ttt-x: var(--primary);
+  --ttt-o: var(--accent);
+
+  --btn-bg: var(--primary);
+  --btn-txt: #fff;
+
+  --border-light: #e3e7f1;
+}
+
+/* App Container */
+.App {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-main);
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Helvetica Neue', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Centered Main Layout */
+.ttt-main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  margin-top: 7vh;
+  margin-bottom: 24px;
+}
+
+.ttt-title {
+  margin-bottom: 1.6rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--primary);
+  letter-spacing: 0.04em;
+}
+
+.ttt-board-wrapper {
+  background: var(--card-bg);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px 2px var(--ttt-shadow);
+  display: flex;
+  justify-content: center;
+}
+
+/* Game Board Grid */
+.ttt-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(60px, 80px));
+  grid-template-rows: repeat(3, minmax(60px, 80px));
+  gap: 8px;
+}
+
+.ttt-cell {
+  width: 72px;
+  height: 72px;
+  background-color: var(--bg-primary);
+  border: 2.5px solid var(--primary);
+  border-radius: 14px;
+  font-size: 2.1rem;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.16s, border-color 0.18s;
+  outline: none;
+  box-shadow: none;
+  user-select: none;
+}
+
+.ttt-cell:disabled {
+  background: var(--border-light);
+  color: var(--secondary);
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.ttt-cell:focus {
+  border-color: var(--secondary);
+}
+
+.ttt-x {
+  color: var(--primary);
+  text-shadow: 1px 2px 0 #e3f0fa;
+}
+.ttt-o {
+  color: var(--accent);
+  text-shadow: 1px 2px 0 #ffeceb;
+}
+
+/* Status and Controls */
+.ttt-status {
+  margin-top: 2rem;
+  margin-bottom: 1.4rem;
+  font-size: 1.24rem;
+  font-weight: 500;
+  color: var(--text-main);
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  min-height: 2.2em;
+}
+
+.ttt-restart-btn {
+  background: var(--secondary);
+  color: #222;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.07rem;
+  font-weight: 600;
+  padding: 0.62em 1.55em;
+  margin-bottom: 4px;
+  margin-top: 0;
+  letter-spacing: 0.05em;
+  transition: background 0.2s, color 0.2s, box-shadow 0.16s;
+  cursor: pointer;
+  box-shadow: 0 2px 8px 0 #ffe0a0a7;
+  outline: none;
+}
+.ttt-restart-btn:hover, .ttt-restart-btn:focus {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 14px 0 #ffb30026;
+}
+
+.ttt-footer {
+  margin-top: auto;
+  font-size: 0.96rem;
+  color: var(--text-secondary);
+  background: none;
+  text-align: center;
+  padding-bottom: 2em;
+}
+
+/* Responsive Design for Smaller Devices */
+@media (max-width: 600px) {
+  .ttt-main-container {
+    margin-top: 3.7vw;
+    width: 99vw;
+  }
+  .ttt-board-wrapper {
+    padding: 1.3rem 0.2rem 1rem 0.2rem;
+  }
+  .ttt-title {
+    font-size: 1.7rem;
+  }
+  .ttt-status {
+    font-size: 1rem;
+    padding: 0.5em 0.7em;
+  }
+  .ttt-board {
+    grid-template-columns: repeat(3, minmax(44px, 1fr));
+    grid-template-rows: repeat(3, minmax(44px, 1fr));
+    gap: 6px;
+  }
+  .ttt-cell {
+    width: 44px;
+    height: 44px;
+    font-size: 1.25rem;
+    border-radius: 9px;
+  }
+  .ttt-restart-btn {
+    font-size: 0.86rem;
+    padding: 0.39em 1.0em;
+  }
+}
